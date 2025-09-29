@@ -1,0 +1,44 @@
+/* 🎨 Sudoku Stylesheet
+   Español: Estilos visuales básicos para el Sudoku
+   English: Basic visual styles for Sudoku
+*/
+
+/* 🔹 Título */
+.title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+}
+
+/* 🔹 Temporizador */
+.timer {
+    -fx-font-size: 18px;
+    -fx-text-fill: #2a9d8f;
+}
+
+/* 🔹 Botones */
+.button {
+    -fx-background-color: #264653;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8px;
+    -fx-padding: 8px 15px;
+}
+.button:hover {
+    -fx-background-color: #2a9d8f;
+}
+
+/* 🔹 Tablero */
+.grid-cell {
+    -fx-border-color: lightgray;
+    -fx-font-size: 16px;
+    -fx-alignment: center;
+}
+
+/* Colores especiales */
+.valid-row, .valid-col, .valid-block {
+    -fx-background-color: lightgray;
+}
+
+.completed-number {
+    -fx-background-color: lightgreen;
+}

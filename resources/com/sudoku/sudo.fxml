@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<!--
+English: Sudoku UI layout
+Español: Diseño de la interfaz de Sudoku
+-->
+
+<BorderPane xmlns="http://javafx.com/javafx/17.0.2"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.sudoku.GameController">
+
+    <!-- English: Top bar with timer / Español: Barra superior con temporizador -->
+    <top>
+        <Label fx:id="timerLabel" text="⏱ 0s" BorderPane.alignment="CENTER"/>
+    </top>
+
+    <!-- English: Center is the Sudoku grid / Español: El centro es el tablero de Sudoku -->
+    <center>
+        <GridPane fx:id="board" BorderPane.alignment="CENTER" gridLinesVisible="true"/>
+    </center>
+
+    <!-- English: Bottom bar with buttons / Español: Barra inferior con botones -->
+    <bottom>
+        <HBox spacing="10" alignment="CENTER" BorderPane.alignment="CENTER">
+            <Button fx:id="startBtn" text="Start / Iniciar" onAction="#startGame"/>
+            <Button fx:id="pauseBtn" text="Pause / Pausar" onAction="#pauseGame"/>
+            <Button fx:id="helpBtn" text="Help / Ayuda" onAction="#helpGame"/>
+            <Button fx:id="endBtn" text="End / Finalizar" onAction="#endGame"/>
+        </HBox>
+    </bottom>
+
+</BorderPane>
