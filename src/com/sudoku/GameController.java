@@ -4,68 +4,66 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
-import javafx.util.Duration;
+import javafx.scene.control.TextField;
 
-/**
- * English: Controls the game logic and UI interaction.
- * Español: Controla la lógica del juego y la interacción con la interfaz.
- */
 public class GameController {
 
-    @FXML private GridPane board;   // English: Sudoku board / Español: Tablero de Sudoku
-    @FXML private Button startBtn;  // English: Start button / Español: Botón iniciar
-    @FXML private Button pauseBtn;  // English: Pause button / Español: Botón pausar
-    @FXML private Button helpBtn;   // English: Help button / Español: Botón ayuda
-    @FXML private Button endBtn;    // English: End button / Español: Botón finalizar
-    @FXML private Label timerLabel; // English: Timer / Español: Temporizador
+    // 🔹 Vínculos con los elementos del FXML
+    @FXML private Label timerLabel;
+    @FXML private GridPane sudokuGrid;
+    @FXML private Button startButton;
+    @FXML private Button pauseButton;
+    @FXML private Button helpButton;
+    @FXML private Button finishButton;
 
-    private Cell[][] cells = new Cell[6][6];
-    private SudokuModel model = new SudokuModel();
-    private Timeline timeline;
-    private int seconds = 0;
+    private boolean gameRunning = false;
 
     @FXML
     public void initialize() {
-        // English: Create 6x6 grid of cells / Español: Crear la cuadrícula 6x6 de celdas
+        System.out.println("✅ Controlador cargado.");
+        createEmptyBoard();
+    }
+
+    // 🔹 Crear un tablero 6x6 vacío con TextField
+    private void createEmptyBoard() {
+        sudokuGrid.getChildren().clear();
         for (int row = 0; row < 6; row++) {
             for (int col = 0; col < 6; col++) {
-                Cell cell = new Cell(row, col);
-                cells[row][col] = cell;
-                board.add(cell, col, row);
+                TextField cell = new TextField();
+                cell.setPrefSize(50, 50);
+                cell.setStyle("-fx-font-size: 16px; -fx-alignment: center;");
+                sudokuGrid.add(cell, col, row);
             }
         }
-
-        // English: Configure timer / Español: Configurar temporizador
-        timeline = new Timeline(new KeyFrame(Duration.seconds(1), e -> {
-            seconds++;
-            timerLabel.setText("⏱ " + seconds + "s");
-        }));
-        timeline.setCycleCount(Timeline.INDEFINITE);
     }
 
+    // 🔹 Botón "Iniciar"
     @FXML
-    private void startGame() {
-        seconds = 0;
-        timerLabel.setText("⏱ 0s");
-        timeline.play();
-        model.fillBoard(cells);
+    private void onStartGame() {
+        gameRunning = true;
+        timerLabel.setText("00:00");
+        System.out.println("🎮 Juego iniciado.");
     }
 
+    // 🔹 Botón "Pausar"
     @FXML
-    private void pauseGame() {
-        timeline.pause();
+    private void onPauseGame() {
+        if (gameRunning) {
+            gameRunning = false;
+            System.out.println("⏸ Juego pausado.");
+        }
     }
 
+    // 🔹 Botón "Ayuda"
     @FXML
-    private void endGame() {
-        timeline.stop();
-        timerLabel.setText("Game Over / Juego terminado");
+    private void onHelp() {
+        System.out.println("💡 Mostrar pista o validación (a implementar).");
     }
 
+    // 🔹 Botón "Finalizar"
     @FXML
-    private void helpGame() {
-        timerLabel.setText("Help not implemented yet / Ayuda no implementada todavía");
+    private void onFinish() {
+        gameRunning = false;
+        System.out.println("🏁 Juego finalizado.");
     }
 }
