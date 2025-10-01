@@ -6,11 +6,9 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 /**
- * English: Main entry point of the Sudoku app.
- * Español: Punto de entrada principal de la aplicación Sudoku.
+ * Main entry point of the Sudoku app.
  */
 public class Main extends Application {
-
     @Override
     public void start(Stage stage) throws Exception {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/sudoku/sudo.fxml"));
