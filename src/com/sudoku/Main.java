@@ -17,6 +17,7 @@ public class Main extends Application {
 
         stage.setTitle("Sudoku 6x6");
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.show();
     }
 
