@@ -45,6 +45,7 @@
             <Button fx:id="resumeButton" onAction="#onResumeGame" text="Resume" />
             <Button fx:id="helpButton" onAction="#onHelp" text="Help" />
             <Button fx:id="finishButton" onAction="#onFinish" text="Finish" />
+            <Button fx:id="newGameButton" onAction= "#onNewGame" text="New Game" />
         </HBox>
     </bottom>
 </BorderPane>

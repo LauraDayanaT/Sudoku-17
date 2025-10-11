@@ -22,6 +22,7 @@ public class GameController {
     @FXML private Button helpButton;
     @FXML private Button finishButton;
     @FXML private Label statusLabel;
+    @FXML private Button newGameButton;
 
     private boolean gameRunning = false;
     private int seconds = 0;
@@ -118,4 +119,21 @@ public class GameController {
         alert.setContentText(msg);
         alert.showAndWait();
     }
+
+    @FXML
+    private void onNewGame() {
+        gameRunning = false;
+        timeline.stop();
+        seconds = 0;
+        timerLabel.setText("00:00");
+        statusLabel.setText("🎮 New Sudoku started.");
+
+        //me genera el nuevo tablero
+        createEmptyBoard();
+        model.generatePuzzle(cells);
+
+        gameRunning = true;
+        timeline.play();
+    }
+
 }
