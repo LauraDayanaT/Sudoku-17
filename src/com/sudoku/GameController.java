@@ -43,6 +43,12 @@ public class GameController {
             for (int col = 0; col < SIZE; col++) {
                 Cell cell = new Cell(row, col);
                 cell.getStyleClass().add("grid-cell");
+
+                if (row % 2 == 0) cell.getStyleClass().add("thick-top");
+                if (col % 3 == 0) cell.getStyleClass().add("thick-left");
+                if (row == SIZE - 1) cell.getStyleClass().add("thick-bottom");
+                if (col == SIZE - 1) cell.getStyleClass().add("thick-right");
+
                 cell.setId("cell-" + row + "-" + col);
                 sudokuGrid.add(cell, col, row);
                 cells[row][col] = cell;
