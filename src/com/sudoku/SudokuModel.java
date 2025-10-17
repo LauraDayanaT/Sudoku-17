@@ -34,6 +34,8 @@ public class SudokuModel {
                     cells[r][c].setText("");
                     cells[r][c].setEditable(true);
                     cells[r][c].setStyle("-fx-background-color: white; -fx-alignment: center;");
+
+
                 }
             }
         }

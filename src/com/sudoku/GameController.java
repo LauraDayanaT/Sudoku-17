@@ -77,7 +77,7 @@ public class GameController {
             timerLabel.setText("00:00");
             timeline.play();
             model.generatePuzzle(cells);
-            statusLabel.setText("🎮 Game started.");
+            statusLabel.setText("Game started.");
         }
     }
 
@@ -85,7 +85,7 @@ public class GameController {
     private void onPauseGame() {
         if (gameRunning) {
             gameRunning = false;
-            statusLabel.setText("⏸ Game paused.");
+            statusLabel.setText("Game paused.");
         }
     }
 
@@ -94,14 +94,14 @@ public class GameController {
         if (!gameRunning) {
             gameRunning = true;
             timeline.play();
-            statusLabel.setText("▶ Game resumed.");
+            statusLabel.setText("Game resumed.");
         }
     }
 
     @FXML
     private void onHelp() {
         boolean valid = model.validateBoard(cells);
-        showAlert("Help", valid ? "✅ So far everything looks good!" : "⚠️ There's an error in the board.");
+        showAlert("Help", valid ? "So far everything looks good!" : "There's an error in the board.");
     }
 
     @FXML
@@ -109,7 +109,7 @@ public class GameController {
         gameRunning = false;
         timeline.stop();
         boolean solved = model.isSolved(cells);
-        showAlert("Game finished", solved ? "🎉 Congratulations, you solved the Sudoku!" : "❌ The board is incorrect.");
+        showAlert("Game finished", solved ? "Congratulations, you solved the Sudoku!" : "The board is incorrect.");
     }
 
     private void showAlert(String title, String msg) {
