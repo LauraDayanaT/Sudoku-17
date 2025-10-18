@@ -19,20 +19,21 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(FXML_FILE));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/sudoku/sudo.fxml"));
             Parent root = loader.load(); // Línea que falla si el FXML no se encuentra.
 
             Scene scene = new Scene(root);
 
             // Si el archivo CSS está en la misma carpeta que Main.java
-            scene.getStylesheets().add(getClass().getResource("styles.css").toExternalForm());
+            scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
 
-            primaryStage.setTitle(APP_TITLE);
+            primaryStage.setTitle("Sudoku 6x6");
             primaryStage.setScene(scene);
+            primaryStage.setResizable(true);
             primaryStage.show();
 
         } catch (IOException e) {
-            System.err.println("Error loading FXML file: " + FXML_FILE);
+            System.err.println("Error loading FXML file: " + "/com/sudoku/sudo.fxml");
             e.printStackTrace();
         }
     }
