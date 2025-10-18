@@ -35,6 +35,25 @@ root {
     -fx-border-style: solid;
 }
 
+/* Hint to the user (Help) */
+.hint-given {
+    -fx-background-color: #a7ffeb;
+    -fx-text-fill: #004d40;
+    -fx-font-weight: bold;
+}
+
+/* Correct number (Green) */
+.correct-entry {
+    -fx-background-color: #e6ffe6;
+    -fx-text-fill: #1a7f37;
+}
+
+/* Incorrect number (Red) */
+.incorrect-entry {
+    -fx-background-color: #ffe6e6;
+    -fx-text-fill: #b30000;
+}
+
 /* Block borders (2x3) */
 .thick-top {
     -fx-border-width: 3 1 1 1;                 /* top right bottom left */
