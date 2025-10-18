@@ -11,6 +11,9 @@ public class Cell extends TextField {
     /* Store the solution */
     private final int[][] solutionBoard;
 
+    private Runnable onValueChanged;
+
+
     public Cell(int row, int col, int[][] solutionBoard) {
         this.row = row;
         this.col = col;
@@ -37,6 +40,11 @@ public class Cell extends TextField {
             }
         });
     }
+
+    public void setOnValueChanged(Runnable callback) {
+        this.onValueChanged = callback;
+    }
+
 
     private void validateEntry(String entry) {
         getStyleClass().removeAll("correct-entry", "incorrect-entry");

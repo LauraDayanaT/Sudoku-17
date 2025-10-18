@@ -31,6 +31,8 @@ public class GameController {
     @FXML private Button finishButton;
     @FXML private Label statusLabel;
     @FXML private Button newGameButton; // Asumiendo que has añadido este ID en el FXML
+    @FXML private Label sixCountLabel;
+
 
     private boolean gameRunning = false;
     private int seconds = 0;
@@ -113,6 +115,21 @@ public class GameController {
         timeline.setCycleCount(Timeline.INDEFINITE);
     }
 
+    /** Actualiza el conteo de números 6 en el tablero */
+    private void updateSixCount() {
+        int count = 0;
+        for (int r = 0; r < SIZE; r++) {
+            for (int c = 0; c < SIZE; c++) {
+                String val = cells[r][c].getText();
+                if ("6".equals(val)) {
+                    count++;
+                }
+            }
+        }
+        sixCountLabel.setText("Count of 6: " + count);
+    }
+
+
     @FXML
     private void onStartGame() {
         // La lógica de onStartGame se utiliza también para New Game
@@ -152,6 +169,9 @@ public class GameController {
         gameRunning = true;
         timeline.play();
         statusLabel.setText("🎮 Game started.");
+
+        updateSixCount();
+
     }
 
     @FXML
@@ -218,6 +238,9 @@ public class GameController {
 
         hintsUsed++;
         statusLabel.setText("Pista utilizada. Total: " + hintsUsed);
+
+        updateSixCount();
+
     }
 
     @FXML
