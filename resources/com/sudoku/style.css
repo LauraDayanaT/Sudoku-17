@@ -1,16 +1,18 @@
-root {
+/* root.css - General Look and Feel */
+.root {
     -fx-background-color: #f4f6f7;
     -fx-font-family: "Segoe UI", sans-serif;
 }
 
+/* --- Labels and Buttons --- */
 #timerLabel {
     -fx-font-size: 20px;
     -fx-font-weight: bold;
-    -fx-text-fill: #2a9d8f;
+    -fx-text-fill: #2a9d8f; /* Teal */
 }
 #statusLabel {
     -fx-font-size: 16px;
-    -fx-text-fill: #264653;
+    -fx-text-fill: #264653; /* Dark Blue/Gray */
 }
 
 .button {
@@ -22,86 +24,77 @@ root {
     -fx-font-size: 14px;
 }
 .button:hover {
-    -fx-background-color: #2a9d8f;
+    -fx-background-color: #2a9d8f; /* Lighter Teal on hover */
 }
 
+/* --- Cell Styles (TextField) --- */
 .grid-cell {
+    /* Base border width and color */
     -fx-border-color: #bbb;
     -fx-border-width: 1;
     -fx-font-size: 20px;
     -fx-background-color: white;
+    -fx-alignment: center; /* Center the text inside the cell */
     -fx-pref-width: 50px;
     -fx-pref-height: 50px;
     -fx-border-style: solid;
+    -fx-text-fill: #264653; /* Default text color (for user input) */
 }
 
-/* Hint to the user (Help) */
+/* --- Validation Feedback Styles (Aplicado por Cell.java) --- */
+
+/* Pista dada por el sistema (Botón Help) */
 .hint-given {
-    -fx-background-color: #a7ffeb;
-    -fx-text-fill: #004d40;
+    -fx-background-color: #c8e6c9; /* Fondo verde claro */
+    -fx-text-fill: #1b5e20;
     -fx-font-weight: bold;
 }
 
-/* Correct number (Green) */
+/* Número correcto ingresado por el usuario (Verde) */
 .correct-entry {
     -fx-background-color: #e6ffe6;
     -fx-text-fill: #1a7f37;
 }
 
-/* Incorrect number (Red) */
+/* Número incorrecto ingresado por el usuario (Rojo) */
 .incorrect-entry {
     -fx-background-color: #ffe6e6;
     -fx-text-fill: #b30000;
 }
 
-/* Block borders (2x3) */
-.thick-top {
-    -fx-border-width: 3 1 1 1;                 /* top right bottom left */
-    -fx-border-color: black #bbb #bbb #bbb;    /* top negro, otros grises */
-    -fx-border-style: solid;
+
+/* --- BORDES GRUESOS (Usado por GameController) --- */
+
+.border-top-thick {
+    -fx-border-width: 3 1 1 1;
+    -fx-border-color: black inherit inherit inherit;
 }
 
-/* left grueso (3px), top/right/bottom finos */
-.thick-left {
-    -fx-border-width: 1 1 1 3;
-    -fx-border-color: #bbb #bbb #bbb black;
-    -fx-border-style: solid;
-}
-
-
-.thick-right {
-    -fx-border-width: 1 3 1 1;
-    -fx-border-color: #bbb black #bbb #bbb;
-    -fx-border-style: solid;
-}
-
-
-.thick-bottom {
+.border-bottom-thick {
     -fx-border-width: 1 1 3 1;
-    -fx-border-color: #bbb #bbb black #bbb;
-    -fx-border-style: solid;
+    -fx-border-color: inherit inherit black inherit;
 }
 
+.border-left-thick {
+    -fx-border-width: 1 1 1 3;
+    -fx-border-color: inherit inherit inherit black;
+}
 
-.thick-top.thick-left {
+.border-right-thick {
+    -fx-border-width: 1 3 1 1;
+    -fx-border-color: inherit black inherit inherit;
+}
+
+/* Manejo de bordes combinados */
+.border-top-thick.border-left-thick {
     -fx-border-width: 3 1 1 3;
-    -fx-border-color: black #bbb #bbb black;
-    -fx-border-style: solid;
 }
-
-
-.thick-top.thick-right {
+.border-top-thick.border-right-thick {
     -fx-border-width: 3 3 1 1;
-    -fx-border-color: black black #bbb #bbb;
-    -fx-border-style: solid;
 }
-.thick-bottom.thick-left {
+.border-bottom-thick.border-left-thick {
     -fx-border-width: 1 1 3 3;
-    -fx-border-color: #bbb #bbb black black;
-    -fx-border-style: solid;
 }
-.thick-bottom.thick-right {
+.border-bottom-thick.border-right-thick {
     -fx-border-width: 1 3 3 1;
-    -fx-border-color: #bbb black black #bbb;
-    -fx-border-style: solid;
 }
